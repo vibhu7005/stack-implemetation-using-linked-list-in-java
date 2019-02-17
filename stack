@@ -1,0 +1,65 @@
+//stack implementation using linked list 
+public class Main 
+{
+    static class Node 
+    {
+        int data;
+        Node next;
+    }
+    static Node top;
+    public Main()
+    {
+        top=null;
+    }
+    public static void push(int data)
+    {
+        Node temp=new Node();
+        temp.data=data;
+        temp.next=top;
+        top=temp;
+    }
+    public static void pop()
+    {
+        if(top==null)
+        {
+            System.out.println("empty cant pop");
+            return;
+        }
+        else
+        top=top.next;
+    }
+    public static int peek()
+    {
+        if(top==null)
+        {
+            System.out.print("error");
+            return -999;
+            
+        }
+        else
+        {
+            int a=top.data;
+            top=top.next;
+            return a;
+        }
+    }
+    public static void display()
+    {
+        Node temp=top;
+        while(temp!=null)
+        {
+            System.out.println(temp.data);
+            temp=temp.next;
+        }
+    }
+    public static void main(String[] args)
+    {
+        push(67);
+        push(78);
+        push(89);
+        push(99);
+        pop();
+        pop();
+        display();
+    }
+}
